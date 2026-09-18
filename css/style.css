@@ -32,6 +32,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 76px;
 }
 
 body {
@@ -193,21 +194,34 @@ button {
   width: 38px;
   height: 38px;
   display: none;
-  place-items: center;
-  gap: 4px;
+  position: relative;
   padding: 0;
 }
 
 .menu-btn span {
-  display: block;
+  position: absolute;
+  left: 11px;
   width: 16px;
   height: 1.6px;
   background: currentColor;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease, top 0.2s ease;
+}
+
+.menu-btn span:nth-child(1) {
+  top: 13px;
+}
+
+.menu-btn span:nth-child(2) {
+  top: 18px;
+}
+
+.menu-btn span:nth-child(3) {
+  top: 23px;
 }
 
 .menu-btn[aria-expanded="true"] span:nth-child(1) {
-  transform: translateY(5.6px) rotate(45deg);
+  top: 18px;
+  transform: rotate(45deg);
 }
 
 .menu-btn[aria-expanded="true"] span:nth-child(2) {
@@ -215,7 +229,8 @@ button {
 }
 
 .menu-btn[aria-expanded="true"] span:nth-child(3) {
-  transform: translateY(-5.6px) rotate(-45deg);
+  top: 18px;
+  transform: rotate(-45deg);
 }
 
 main {
@@ -574,7 +589,7 @@ main {
   }
 
   .menu-btn {
-    display: grid;
+    display: block;
   }
 
   .about-grid,
@@ -590,6 +605,14 @@ main {
 
   .brand__name {
     display: none;
+  }
+
+  .hero h1 {
+    font-size: 2.55rem;
+  }
+
+  .hero {
+    padding-top: 12px;
   }
 }
 
