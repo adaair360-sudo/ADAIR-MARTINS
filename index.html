@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Currículo de Adair Martins — desenvolvedor front-end. HTML, CSS e JavaScript." />
+    <meta name="theme-color" content="#1a1612" />
+    <meta property="og:title" content="Adair Martins — Currículo" />
+    <meta property="og:description" content="Currículo de uma página: experiência, formação, habilidades e projetos." />
+    <meta property="og:type" content="profile" />
+    <title>Adair Martins — Currículo</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
+
+    <header class="topbar" id="topo">
+      <div class="topbar__inner">
+        <a class="brand" href="#topo" aria-label="Adair Martins">
+          <span class="brand__mark" aria-hidden="true">AM</span>
+          <span class="brand__name">Adair Martins</span>
+        </a>
+
+        <nav class="nav" id="nav" aria-label="Seções do currículo">
+          <a href="#sobre" data-i18n="navAbout">Sobre</a>
+          <a href="#experiencia" data-i18n="navExperience">Experiência</a>
+          <a href="#formacao" data-i18n="navEducation">Formação</a>
+          <a href="#habilidades" data-i18n="navSkills">Habilidades</a>
+          <a href="#projetos" data-i18n="navProjects">Projetos</a>
+          <a href="#contato" data-i18n="navContact">Contato</a>
+        </nav>
+
+        <div class="topbar__actions">
+          <button class="icon-btn" id="langBtn" type="button" aria-label="Mudar idioma" title="PT / EN">
+            <span id="langLabel">EN</span>
+          </button>
+          <button class="icon-btn" id="themeBtn" type="button" aria-label="Alternar tema" title="Tema">
+            <span class="theme-icon theme-icon--sun" aria-hidden="true"></span>
+            <span class="theme-icon theme-icon--moon" aria-hidden="true"></span>
+          </button>
+          <button class="icon-btn icon-btn--accent" id="printBtn" type="button" data-i18n-title="printTitle" title="Imprimir / PDF">
+            <span class="print-icon" aria-hidden="true"></span>
+            <span class="icon-btn__text" data-i18n="print">Imprimir</span>
+          </button>
+          <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" data-i18n-aria="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero reveal">
+        <p class="eyebrow" data-i18n="available">Disponível para oportunidades</p>
+        <h1>Adair Martins</h1>
+        <p class="hero__role" data-i18n="role">Desenvolvedor Front-end</p>
+        <p class="hero__lead" data-i18n="lead">
+          Crio interfaces web claras, rápidas e com identidade visual. Trabalho com HTML, CSS e
+          JavaScript para transformar conteúdo em páginas que as pessoas realmente usam.
+        </p>
+        <ul class="chips" aria-label="Contato rápido">
+          <li>
+            <a href="https://github.com/adaair360-sudo" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </li>
+          <li>
+            <button type="button" id="copyEmail" data-email="adair.martins@email.com">
+              <span data-i18n="copyEmail">Copiar e-mail</span>
+            </button>
+          </li>
+          <li><span data-i18n="location">Brasil</span></li>
+        </ul>
+      </section>
+
+      <section class="section" id="sobre">
+        <div class="section__head reveal">
+          <span class="section__index">01</span>
+          <h2 data-i18n="aboutTitle">Sobre</h2>
+        </div>
+        <div class="about-grid">
+          <div class="card reveal">
+            <p data-i18n="aboutP1">
+              Sou o Adair Martins, desenvolvedor focado em front-end. Gosto de páginas com
+              tipografia bem escolhida, hierarquia clara e detalhes que fazem a navegação parecer
+              simples — mesmo quando o layout é rico.
+            </p>
+            <p data-i18n="aboutP2">
+              Este currículo é uma página única construída com HTML, CSS e JavaScript: tema claro e
+              escuro, versão em português e inglês, impressão em PDF e animações leves. O conteúdo
+              fica fácil de atualizar no arquivo de dados.
+            </p>
+          </div>
+          <aside class="facts reveal">
+            <dl>
+              <div>
+                <dt data-i18n="factFocus">Foco</dt>
+                <dd data-i18n="factFocusValue">Front-end &amp; UI</dd>
+              </div>
+              <div>
+                <dt data-i18n="factStack">Stack</dt>
+                <dd>HTML · CSS · JS</dd>
+              </div>
+              <div>
+                <dt data-i18n="factWork">Formato</dt>
+                <dd data-i18n="factWorkValue">Remoto / híbrido</dd>
+              </div>
+              <div>
+                <dt data-i18n="factLang">Idiomas</dt>
+                <dd data-i18n="factLangValue">Português · Inglês</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="experiencia">
+        <div class="section__head reveal">
+          <span class="section__index">02</span>
+          <h2 data-i18n="expTitle">Experiência</h2>
+        </div>
+        <ol class="timeline">
+          <li class="timeline__item reveal">
+            <div class="timeline__meta">
+              <span data-i18n="job1Date">2024 — atual</span>
+            </div>
+            <div class="timeline__body">
+              <h3 data-i18n="job1Role">Desenvolvedor Front-end</h3>
+              <p class="timeline__place" data-i18n="job1Place">Projetos pessoais e freelancer</p>
+              <ul>
+                <li data-i18n="job1a">
+                  Desenho e implemento páginas responsivas com HTML semântico, CSS moderno e JavaScript.
+                </li>
+                <li data-i18n="job1b">
+                  Cuido de acessibilidade básica, contraste, teclado e estados de foco.
+                </li>
+                <li data-i18n="job1c">
+                  Versiono o trabalho no GitHub e documento decisões de layout e conteúdo.
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <div class="timeline__meta">
+              <span data-i18n="job2Date">2023 — 2024</span>
+            </div>
+            <div class="timeline__body">
+              <h3 data-i18n="job2Role">Estudos e prática em desenvolvimento web</h3>
+              <p class="timeline__place" data-i18n="job2Place">Formação contínua</p>
+              <ul>
+                <li data-i18n="job2a">
+                  Aprofundei HTML, CSS (flex, grid, variáveis) e JavaScript no navegador.
+                </li>
+                <li data-i18n="job2b">
+                  Construí componentes reutilizáveis: navegação, temas, formulários e listas dinâmicas.
+                </li>
+                <li data-i18n="job2c">
+                  Pratiquei Git, GitHub e publicação de páginas estáticas.
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section" id="formacao">
+        <div class="section__head reveal">
+          <span class="section__index">03</span>
+          <h2 data-i18n="eduTitle">Formação</h2>
+        </div>
+        <div class="edu-grid">
+          <article class="card card--edu reveal">
+            <p class="card__kicker" data-i18n="edu1Type">Formação técnica</p>
+            <h3 data-i18n="edu1Name">Desenvolvimento Web</h3>
+            <p data-i18n="edu1Detail">HTML, CSS, JavaScript, Git e publicação de sites.</p>
+          </article>
+          <article class="card card--edu reveal">
+            <p class="card__kicker" data-i18n="edu2Type">Complementar</p>
+            <h3 data-i18n="edu2Name">UI, acessibilidade e desempenho</h3>
+            <p data-i18n="edu2Detail">Hierarquia visual, contraste, semântica e páginas leves.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="habilidades">
+        <div class="section__head reveal">
+          <span class="section__index">04</span>
+          <h2 data-i18n="skillsTitle">Habilidades</h2>
+        </div>
+        <div class="skills">
+          <div class="skill reveal" data-level="90">
+            <div class="skill__row">
+              <span>HTML</span>
+              <span class="skill__pct">90%</span>
+            </div>
+            <div class="skill__track" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" aria-label="HTML">
+              <span class="skill__bar"></span>
+            </div>
+          </div>
+          <div class="skill reveal" data-level="88">
+            <div class="skill__row">
+              <span>CSS</span>
+              <span class="skill__pct">88%</span>
+            </div>
+            <div class="skill__track" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88" aria-label="CSS">
+              <span class="skill__bar"></span>
+            </div>
+          </div>
+          <div class="skill reveal" data-level="80">
+            <div class="skill__row">
+              <span>JavaScript</span>
+              <span class="skill__pct">80%</span>
+            </div>
+            <div class="skill__track" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-label="JavaScript">
+              <span class="skill__bar"></span>
+            </div>
+          </div>
+          <div class="skill reveal" data-level="75">
+            <div class="skill__row">
+              <span>Git &amp; GitHub</span>
+              <span class="skill__pct">75%</span>
+            </div>
+            <div class="skill__track" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-label="Git e GitHub">
+              <span class="skill__bar"></span>
+            </div>
+          </div>
+          <div class="skill reveal" data-level="78">
+            <div class="skill__row">
+              <span data-i18n="skillUi">Interface &amp; layout</span>
+              <span class="skill__pct">78%</span>
+            </div>
+            <div class="skill__track" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="78" aria-label="Interface e layout">
+              <span class="skill__bar"></span>
+            </div>
+          </div>
+          <div class="skill reveal" data-level="70">
+            <div class="skill__row">
+              <span data-i18n="skillA11y">Acessibilidade</span>
+              <span class="skill__pct">70%</span>
+            </div>
+            <div class="skill__track" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" aria-label="Acessibilidade">
+              <span class="skill__bar"></span>
+            </div>
+          </div>
+        </div>
+        <ul class="tags reveal">
+          <li>Flexbox</li>
+          <li>CSS Grid</li>
+          <li>DOM</li>
+          <li>localStorage</li>
+          <li>Responsivo</li>
+          <li>SEO básico</li>
+        </ul>
+      </section>
+
+      <section class="section" id="projetos">
+        <div class="section__head reveal">
+          <span class="section__index">05</span>
+          <h2 data-i18n="projectsTitle">Projetos</h2>
+        </div>
+        <div class="projects">
+          <article class="project reveal">
+            <p class="card__kicker">HTML · CSS · JS</p>
+            <h3 data-i18n="proj1Title">Currículo de uma página</h3>
+            <p data-i18n="proj1Text">
+              Esta página: layout editorial, tema claro/escuro, idioma PT/EN e impressão em PDF.
+            </p>
+            <a class="text-link" href="#topo" data-i18n="proj1Link">Ver nesta página</a>
+          </article>
+          <article class="project reveal">
+            <p class="card__kicker">UI · CSS</p>
+            <h3 data-i18n="proj2Title">Sistema visual próprio</h3>
+            <p data-i18n="proj2Text">
+              Paleta, tipografia e componentes reutilizáveis para manter consistência entre seções.
+            </p>
+          </article>
+          <article class="project reveal">
+            <p class="card__kicker">JavaScript</p>
+            <h3 data-i18n="proj3Title">Interações do currículo</h3>
+            <p data-i18n="proj3Text">
+              Alternância de tema, tradução, barra de habilidades animada e cópia de e-mail.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contato">
+        <div class="section__head reveal">
+          <span class="section__index">06</span>
+          <h2 data-i18n="contactTitle">Contato</h2>
+        </div>
+        <div class="contact-card reveal">
+          <p data-i18n="contactLead">
+            Aberto a conversas sobre vagas, projetos e colaborações. Troque o e-mail abaixo pelo seu
+            endereço real no HTML ou no JavaScript.
+          </p>
+          <div class="contact-actions">
+            <a class="btn" id="mailLink" href="mailto:adair.martins@email.com">adair.martins@email.com</a>
+            <a class="btn btn--ghost" href="https://github.com/adaair360-sudo" target="_blank" rel="noopener noreferrer">
+              github.com/adaair360-sudo
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        © <span id="year"></span> Adair Martins ·
+        <span data-i18n="footerNote">Currículo em HTML, CSS e JavaScript</span>
+      </p>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
