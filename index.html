@@ -42,11 +42,20 @@
             <span id="langLabel">EN</span>
           </button>
           <button class="icon-btn" id="themeBtn" type="button" aria-label="Alternar tema" title="Tema">
-            <span class="theme-icon theme-icon--sun" aria-hidden="true"></span>
-            <span class="theme-icon theme-icon--moon" aria-hidden="true"></span>
+            <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 3v2M12 19v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M3 12h2M19 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+            </svg>
+            <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 13a6 6 0 0 1-7-7 6 6 0 1 0 7 7z"></path>
+            </svg>
           </button>
           <button class="icon-btn icon-btn--accent" id="printBtn" type="button" data-i18n-title="printTitle" title="Imprimir / PDF">
-            <span class="print-icon" aria-hidden="true"></span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 8V4h10v4"></path>
+              <rect x="6" y="14" width="12" height="6"></rect>
+              <path d="M6 17H5a2 2 0 0 1-2-2v-5h18v5a2 2 0 0 1-2 2h-1"></path>
+            </svg>
             <span class="icon-btn__text" data-i18n="print">Imprimir</span>
           </button>
           <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" data-i18n-aria="menu">
@@ -94,8 +103,8 @@
             </p>
             <p data-i18n="aboutP2">
               Este currículo é uma página única construída com HTML, CSS e JavaScript: tema claro e
-              escuro, versão em português e inglês, impressão em PDF e animações leves. O conteúdo
-              fica fácil de atualizar no arquivo de dados.
+              escuro, versão em português e inglês, impressão em PDF e animações leves. Os textos
+              podem ser atualizados em index.html e js/script.js.
             </p>
           </div>
           <aside class="facts reveal">
@@ -299,7 +308,7 @@
         <div class="contact-card reveal">
           <p data-i18n="contactLead">
             Aberto a conversas sobre vagas, projetos e colaborações. Troque o e-mail abaixo pelo seu
-            endereço real no HTML ou no JavaScript.
+            endereço real.
           </p>
           <div class="contact-actions">
             <a class="btn" id="mailLink" href="mailto:adair.martins@email.com">adair.martins@email.com</a>

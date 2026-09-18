@@ -19,7 +19,7 @@ const i18n = {
     aboutP1:
       "Sou o Adair Martins, desenvolvedor focado em front-end. Gosto de páginas com tipografia bem escolhida, hierarquia clara e detalhes que fazem a navegação parecer simples — mesmo quando o layout é rico.",
     aboutP2:
-      "Este currículo é uma página única construída com HTML, CSS e JavaScript: tema claro e escuro, versão em português e inglês, impressão em PDF e animações leves. O conteúdo fica fácil de atualizar no arquivo de dados.",
+      "Este currículo é uma página única construída com HTML, CSS e JavaScript: tema claro e escuro, versão em português e inglês, impressão em PDF e animações leves. Os textos podem ser atualizados em index.html e js/script.js.",
     factFocus: "Foco",
     factFocusValue: "Front-end & UI",
     factStack: "Stack",
@@ -60,7 +60,7 @@ const i18n = {
     proj3Text: "Alternância de tema, tradução, barra de habilidades animada e cópia de e-mail.",
     contactTitle: "Contato",
     contactLead:
-      "Aberto a conversas sobre vagas, projetos e colaborações. Troque o e-mail abaixo pelo seu endereço real no HTML ou no JavaScript.",
+      "Aberto a conversas sobre vagas, projetos e colaborações. Troque o e-mail abaixo pelo seu endereço real.",
     footerNote: "Currículo em HTML, CSS e JavaScript",
     copied: "E-mail copiado",
     copyFail: "Não foi possível copiar. Use o botão de e-mail.",
@@ -85,7 +85,7 @@ const i18n = {
     aboutP1:
       "I'm Adair Martins, a developer focused on front-end work. I like pages with considered typography, clear hierarchy, and details that make navigation feel simple — even when the layout is rich.",
     aboutP2:
-      "This résumé is a single page built with HTML, CSS, and JavaScript: light/dark theme, Portuguese and English, PDF printing, and light motion. The content is easy to update in the data file.",
+      "This résumé is a single page built with HTML, CSS, and JavaScript: light/dark theme, Portuguese and English, PDF printing, and light motion. Update the copy in index.html and js/script.js.",
     factFocus: "Focus",
     factFocusValue: "Front-end & UI",
     factStack: "Stack",
@@ -126,7 +126,7 @@ const i18n = {
     proj3Text: "Theme switching, translation, animated skill bars, and email copy.",
     contactTitle: "Contact",
     contactLead:
-      "Open to conversations about roles, projects, and collaborations. Replace the email below with your real address in the HTML or JavaScript.",
+      "Open to conversations about roles, projects, and collaborations. Replace the email below with your real address.",
     footerNote: "Résumé in HTML, CSS, and JavaScript",
     copied: "Email copied",
     copyFail: "Could not copy. Use the email button instead.",
@@ -200,6 +200,13 @@ printBtn.addEventListener("click", () => window.print());
 menuBtn.addEventListener("click", () => {
   const open = nav.classList.toggle("is-open");
   menuBtn.setAttribute("aria-expanded", String(open));
+});
+
+document.addEventListener("click", (event) => {
+  if (!nav.classList.contains("is-open")) return;
+  if (nav.contains(event.target) || menuBtn.contains(event.target)) return;
+  nav.classList.remove("is-open");
+  menuBtn.setAttribute("aria-expanded", "false");
 });
 
 nav.querySelectorAll("a").forEach((link) => {
