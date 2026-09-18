@@ -158,6 +158,7 @@ function applyTheme(next) {
 function applyLang(next) {
   const dict = i18n[next];
   document.documentElement.lang = next === "pt" ? "pt-BR" : "en";
+  document.documentElement.setAttribute("translate", "no");
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.dataset.i18n;
     if (dict[key]) el.textContent = dict[key];
