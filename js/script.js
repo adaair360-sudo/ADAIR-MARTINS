@@ -256,4 +256,7 @@ const skillObserver = new IntersectionObserver(
   { threshold: 0.4 }
 );
 
-document.querySelectorAll(".skill").forEach((skill) => skillObserver.observe(skill));
+document.querySelectorAll(".skill").forEach((skill) => {
+  skill.style.setProperty("--level", `${skill.dataset.level}%`);
+  skillObserver.observe(skill);
+});

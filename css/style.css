@@ -646,8 +646,14 @@ main {
   .topbar,
   .menu-btn,
   .toast,
-  .skip-link {
+  .skip-link,
+  .icon-btn,
+  .nav {
     display: none !important;
+  }
+
+  html {
+    scroll-padding-top: 0;
   }
 
   body,
@@ -659,12 +665,77 @@ main {
     background: #fff;
   }
 
-  a {
-    text-decoration: none;
+  body {
+    background: #fff;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  main {
+    padding: 0 8px 12px;
+  }
+
+  .hero {
+    padding: 0 0 8px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero__role {
+    margin: 8px 0 6px;
+    font-size: 16px;
+  }
+
+  .hero__lead {
+    font-size: 13px;
+  }
+
+  .chips {
+    margin-top: 10px;
   }
 
   .section {
-    padding-top: 24px;
-    break-inside: avoid;
+    padding-top: 14px;
+  }
+
+  .section__head {
+    margin-bottom: 10px;
+  }
+
+  .section__head h2 {
+    font-size: 22px;
+  }
+
+  .card,
+  .project,
+  .contact-card {
+    padding: 12px;
+    box-shadow: none;
+  }
+
+  .timeline__item {
+    padding-bottom: 12px;
+  }
+
+  .footer {
+    padding: 8px 8px 0;
+  }
+
+  .reveal,
+  .skill__bar {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .skill__bar {
+    width: var(--level, 50%) !important;
+  }
+
+  a {
+    text-decoration: none;
   }
 }
