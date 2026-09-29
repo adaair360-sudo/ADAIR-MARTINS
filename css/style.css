@@ -734,8 +734,23 @@ main {
     transform: none !important;
   }
 
+  .skill__track,
+  .skill__bar,
+  .card,
+  .facts,
+  .project,
+  .contact-card,
+  .chips a,
+  .chips button,
+  .chips span,
+  .tags li {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   .skill__bar {
     width: var(--level, 50%) !important;
+    background: #9a4318 !important;
   }
 
   a {

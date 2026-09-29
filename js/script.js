@@ -214,6 +214,11 @@ langBtn.addEventListener("click", () => {
 
 printBtn.addEventListener("click", () => window.print());
 
+function closeMenu() {
+  nav.classList.remove("is-open");
+  menuBtn.setAttribute("aria-expanded", "false");
+}
+
 menuBtn.addEventListener("click", () => {
   const open = nav.classList.toggle("is-open");
   menuBtn.setAttribute("aria-expanded", String(open));
@@ -222,16 +227,14 @@ menuBtn.addEventListener("click", () => {
 document.addEventListener("click", (event) => {
   if (!nav.classList.contains("is-open")) return;
   if (nav.contains(event.target) || menuBtn.contains(event.target)) return;
-  nav.classList.remove("is-open");
-  menuBtn.setAttribute("aria-expanded", "false");
+  closeMenu();
 });
 
 nav.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("is-open");
-    menuBtn.setAttribute("aria-expanded", "false");
-  });
+  link.addEventListener("click", () => closeMenu());
 });
+
+window.addEventListener("hashchange", closeMenu);
 
 copyEmail.addEventListener("click", async () => {
   const email = copyEmail.dataset.email;
