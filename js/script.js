@@ -177,7 +177,25 @@ function showToast(message) {
   toast.textContent = message;
   toast.classList.add("is-on");
   window.clearTimeout(showToast.timer);
-  showToast.timer = window.setTimeout(() => toast.classList.remove("is-on"), 2200);
+  showToast.timer = window.setTimeout(() => toast.classList.remove("is-on"), 2800);
+}
+
+async function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const input = document.createElement("textarea");
+  input.value = text;
+  input.setAttribute("readonly", "");
+  input.style.position = "fixed";
+  input.style.left = "-9999px";
+  document.body.appendChild(input);
+  input.select();
+  const ok = document.execCommand("copy");
+  input.remove();
+  if (!ok) throw new Error("copy failed");
 }
 
 year.textContent = String(new Date().getFullYear());
@@ -219,7 +237,7 @@ copyEmail.addEventListener("click", async () => {
   const email = copyEmail.dataset.email;
   const lang = localStorage.getItem("cv-lang") || "pt";
   try {
-    await navigator.clipboard.writeText(email);
+    await copyText(email);
     showToast(i18n[lang].copied);
   } catch {
     showToast(i18n[lang].copyFail);
