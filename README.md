@@ -57,6 +57,16 @@ Assim o projeto não some: você clona de novo ou abre a pasta recente.
 
 Conectar o GitHub no Cursor **não** envia os arquivos sozinho. Sem commit + sync, a nuvem não tem a sua pasta.
 
+## Como sincronizar e atualizar no notebook
+
+Se você já baixou o projeto no seu computador/notebook e quer puxar as últimas atualizações feitas no GitHub:
+
+```bash
+git pull origin main
+```
+
+Ou no Cursor: abra o painel **Source Control** (Ctrl+Shift+G) e clique no ícone **... (Mais Ações) → Pull (Puxar)**.
+
 ## Como gerar PDF
 
 Na página, clique em **Imprimir**. No diálogo do navegador escolha **Salvar como PDF**.

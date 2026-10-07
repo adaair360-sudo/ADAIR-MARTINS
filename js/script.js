@@ -236,6 +236,13 @@ nav.querySelectorAll("a").forEach((link) => {
 
 window.addEventListener("hashchange", closeMenu);
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && nav.classList.contains("is-open")) {
+    closeMenu();
+    menuBtn.focus();
+  }
+});
+
 copyEmail.addEventListener("click", async () => {
   const email = copyEmail.dataset.email;
   const lang = localStorage.getItem("cv-lang") || "pt";
