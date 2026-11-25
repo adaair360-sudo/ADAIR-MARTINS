@@ -1,0 +1,87 @@
+name: Build MEDIÇÃO AI 3D Android APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish_release:
+        description: 'Publicar Release com link direto do APK'
+        type: boolean
+        default: true
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'medicao_ai_3d/**'
+      - '.github/workflows/medicao-ai-3d-android-apk.yml'
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-android-apk:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: medicao_ai_3d
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Install Flutter dependencies
+        run: flutter pub get
+
+      - name: Analyze Dart and Flutter code
+        run: flutter analyze
+
+      - name: Run Flutter tests
+        run: flutter test
+
+      - name: Build split release APKs (arm64-v8a / armeabi-v7a)
+        run: flutter build apk --release --split-per-abi
+
+      - name: Build universal release APK
+        run: flutter build apk --release
+
+      - name: Upload APK artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: medicao-ai-3d-apks
+          path: |
+            medicao_ai_3d/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+            medicao_ai_3d/build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+            medicao_ai_3d/build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Generate QR code PNG for Release APK
+        if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish_release)
+        run: |
+          RELEASE_TAG="${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || format('apk-build-{0}', github.run_number) }}"
+          APK_URL="https://github.com/${{ github.repository }}/releases/download/${RELEASE_TAG}/app-arm64-v8a-release.apk"
+          dart run tool/generate_apk_qr.dart "${APK_URL}" build/app/outputs/flutter-apk/apk-download-qr.png
+
+      - name: Publish GitHub Release with direct Android APK link
+        if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish_release)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || format('apk-build-{0}', github.run_number) }}
+          name: 'MEDIÇÃO AI 3D Android (${{ startsWith(github.ref, ''refs/tags/v'') && github.ref_name || format(''build-{0}'', github.run_number) }})'
+          generate_release_notes: true
+          files: |
+            medicao_ai_3d/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+            medicao_ai_3d/build/app/outputs/flutter-apk/app-release.apk
+            medicao_ai_3d/build/app/outputs/flutter-apk/apk-download-qr.png
